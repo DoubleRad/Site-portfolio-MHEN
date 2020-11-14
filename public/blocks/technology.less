@@ -1,0 +1,63 @@
+//main: ../style.less
+
+.technology {
+  flex-basis: 33.333333%;
+  height: auto;
+  background-color: @bccol;
+  margin-right: @blockMargin;
+}
+.technology__inner {
+  height: 100%;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+}
+.technology__title {
+  text-align: center;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 1.7rem;
+  background-color: #2e4e5b;
+}
+.technology__collumn-title {
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 5px 15px;
+  width: 100%;
+  height: auto;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: #1b343e;
+  color: fade(white, 80%);
+}
+.technology__collumn-title:hover {
+  filter: brightness(1.15);
+}
+.technology__collumn-menu {
+  width: 100%;
+  height: auto;
+  max-height: 0px;
+  overflow: hidden;
+}
+.technology__item {
+  position: relative;
+  padding: 5px 15px;
+  padding-left: 30px;
+  font-weight: bold;
+  color: fade(white, 50%);
+  width: 100%;
+  background-color: #172a32;
+  user-select: none;
+  &:before {
+    position: absolute;
+    content: "-";
+    left: 15px;
+    display: block;
+    color: inherit;
+  }
+}
+.show {
+  max-height: 100% !important;
+}

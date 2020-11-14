@@ -1,0 +1,45 @@
+//main: ../style.less
+
+.pagination {
+  margin-top: @blockMargin;
+  background-color: @bccol;
+}
+
+.pagination__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination__nav {
+  transition: 0.3s;
+  &:hover {
+    transform: scale(0.9);
+  }
+  filter: invert();
+}
+
+.pagination__prev {
+  & a {
+  }
+}
+
+.pagination__page {
+  & span {
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 5px 10px;
+  }
+}
+
+.pagination__next {
+  & a {
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none !important;
+}
+.info {
+  opacity: 0.5;
+}

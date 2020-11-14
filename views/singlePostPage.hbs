@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="singlePostPage__nav">
+        <button class="singlePostPage__nav--item" onclick="redirectBack()">Назад</button>
+    </div>
+
+    <div class="singlePostPage">
+        <div class="singlePostPage__row">
+            <div class="singlePostPage__col">
+                <div class="singlePostPage__image">
+
+                    <img src="/{{imageSrc}}" alt="">
+                </div>
+            </div>
+            <div class="singlePostPage__col">
+                <div class="singlePostPage__text">
+                    <div class="singlePostPage__title">{{title}}</div>
+                    <p>{{text}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="singlePostPage__info">
+            <div class="singlePostPage--date">
+                Дата публикации :&nbsp;<b>{{date.month}}</b>&nbsp;<b>{{date.day}}</b>&nbsp;/
+                <b>{{date.year}}&nbsp;год</b>
+            </div>
+            <div class="singlePostPage--categories">
+                Категории :
+                {{#each category}}
+                <a href="/blog/category/{{this}}">{{this}}</a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function redirectBack() {
+        window.history.back()
+    }
+</script>

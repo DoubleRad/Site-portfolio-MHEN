@@ -1,0 +1,79 @@
+//main : ../style.less
+
+@media screen and (max-width: 1116px) {
+  .aboutme__text {
+    font-size: 1rem !important;
+    letter-spacing: 0 !important;
+    word-spacing: 0 !important;
+  }
+  .aboutme__content {
+    height: auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  .aboutme__content {
+    margin-right: 0 !important;
+  }
+  .aboutme__empty {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .aboutme__text {
+    font-size: 0.7rem !important;
+    letter-spacing: 0 !important;
+    word-spacing: 0 !important;
+  }
+}
+
+.aboutme {
+  color: white;
+  margin-bottom: @blockMargin;
+}
+.aboutme__inner {
+  display: flex;
+  justify-content: center;
+  & div {
+    flex-basis: 100%;
+  }
+}
+.aboutme__content {
+  display: flex;
+  margin-right: @blockMargin;
+  flex-shrink: 1;
+  background: @bccol;
+}
+.block {
+}
+.aboutme__title {
+  position: relative;
+  font-weight: bold;
+  flex-shrink: 4;
+  &-first {
+    font-size: 1.6rem;
+    & b {
+      font-size: 2.2rem;
+    }
+  }
+  &-second {
+    font-size: 1.3rem;
+    & b {
+      font-size: 1.8rem;
+    }
+  }
+}
+.aboutme__text {
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  flex-shrink: 1;
+  font-size: 1.1rem;
+  letter-spacing: 0.2mm;
+  word-spacing: 1mm;
+}
+
+.aboutme__empty {
+  height: auto;
+  flex-shrink: 2.5;
+  background: #253e49;
+}

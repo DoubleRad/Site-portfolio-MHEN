@@ -1,0 +1,157 @@
+//main: ../style.less
+
+@media screen and (max-width: 1200px) {
+  .header__quote {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .header__other {
+    display: none !important;
+  }
+  .header__nav {
+    margin-right: 0 !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header__nav {
+    display: none !important;
+  }
+  .header__logo {
+    display: none !important;
+  }
+  .header__other {
+    display: none !important;
+  }
+  .mobMenu__inner {
+    display: block !important;
+  }
+  .header__inner {
+    margin-bottom: 0 !important;
+  }
+}
+
+//Мобильное меню==============================
+.activeMobile {
+  background-color: lighten(@bccol, 5%) !important;
+}
+
+.mobMenu__inner {
+  display: none;
+}
+.toggle {
+  transform: translateY(0) !important;
+}
+.mobMenu_btn {
+  z-index: 100;
+  cursor: pointer;
+  width: 100%;
+  background-color: darken(@bccol, 3%);
+  text-align: center;
+  & img {
+    width: 70px;
+    height: 70px;
+    filter: invert();
+  }
+}
+.mobMenu {
+  position: relative;
+  z-index: 99;
+  transition: 0.3s;
+  margin-bottom: @blockMargin;
+}
+.mobMenu__nav {
+  transition: 0.3s;
+
+  z-index: 10000;
+  display: block;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(calc(-100% - 25px));
+  &-item {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: @bccol;
+    font-weight: bold;
+    font-size: 1.3rem;
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-color: darken(@bccol, 11%);
+  }
+}
+
+//==============================
+
+.header__inner {
+  margin-bottom: @blockMargin;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  & a {
+    color: white;
+  }
+  & div {
+    flex-basis: 100%;
+  }
+}
+.header__logo {
+  margin-right: @blockMargin;
+  z-index: 5;
+  flex-shrink: 1.4;
+  background: @bccol;
+  color: white;
+}
+.logo__title {
+  z-index: 10;
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.header__subtitle {
+  z-index: 10;
+  font-size: 1.1rem;
+}
+.header__quote {
+  z-index: 10;
+  color: #6d9cb7;
+  margin-top: 30px;
+}
+
+.header__nav {
+  justify-content: space-between;
+
+  margin-right: @blockMargin;
+  flex-shrink: 1.3;
+  background: @bccol;
+
+  .nav__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & a {
+      margin: 0 5px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.header__other {
+  flex-shrink: 1.1;
+  background: @bccol;
+}

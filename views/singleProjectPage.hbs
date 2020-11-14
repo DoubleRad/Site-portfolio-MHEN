@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="singlePostPage__nav">
+        <button class="singlePostPage__nav--item" onclick="window.history.back()">Назад</button>
+    </div>
+    <div class="singleProjPage">
+        <div class="singleProjPage__col">
+            <img class="singleProjPage__img" src="/{{data.imageSrc}}" alt="">
+        </div>
+        <div class="singleProjPage__col">
+            <div class="singleProjPage__header">
+                <div class="singleProjPage__title">
+                    {{data.title}}
+                </div>
+                <div class="singleProjPage__info">
+                    <div class="singleProjPage__category">
+                        {{data.category}}
+                    </div>
+                    <span class="singleProjPage__info-diviver">|</span>
+                    <div class="singleProjPage__date">
+                        2020
+                    </div>
+                </div>
+            </div>
+            <div class="singleProjPage__client">
+                <div class="singleProjPage__client-title">
+                    Клиент:
+                </div>
+                <div class="singleProjPage__client-company">
+                    Компания
+                </div>
+            </div>
+            <div class="singleProjPage__text">
+                <p>{{data.text}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

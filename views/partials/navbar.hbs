@@ -1,0 +1,94 @@
+<header>
+    <div class="mobMenu__inner">
+        <div class="mobMenu_btn  block-small" onclick="toggleMenu()">
+            <img src="/svg/menu.svg" alt="">
+        </div>
+        <div class="mobMenu">
+            <div class="mobMenu__nav">
+                {{#if isMain}}
+                <a class="mobMenu__nav-item activeMobile" href="/mainPage">главная</a>
+                {{else}}
+                <a class="mobMenu__nav-item" href="/mainPage">главная</a>
+                {{/if}}
+
+                {{#if isWorks}}
+                <a class="mobMenu__nav-item activeMobile" href="/works">мои работы</a>
+                {{else}}
+                <a class="mobMenu__nav-item" href="/works">мои работы</a>
+                {{/if}}
+
+                {{#if isBlog}}
+                <a class="mobMenu__nav-item activeMobile" href="/blogPage?page=1">блог</a>
+                {{else}}
+                <a class="mobMenu__nav-item" href="/blogPage?page=1">блог</a>
+                {{/if}}
+
+                {{#if isConnect}}
+                <a class="mobMenu__nav-item activeMobile" href="/connect">резюме</a>
+                {{else}}
+                <a class="mobMenu__nav-item" href="/connect">резюме</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="header__inner">
+        {{#if mainPage}}
+        <div class="header__logo block">
+            {{else}}
+            <div class="header__logo block-small">
+                {{/if}}
+                <a href="/mainPage">
+                    <div class="logo__title">Гордиенко Родион</div>
+                    <div class="header__subtitle">junior fullstack developer</div>
+                </a>
+                {{#if mainPage}}
+                <div class="header__quote">Или просто - Джун)</div>
+                {{/if}}
+            </div>
+            {{#if mainPage}}
+            <div class="header__nav block">
+                {{else}}
+                <div class="header__nav block-small">
+                    {{/if}}
+                    <div class="nav__items">
+                        {{#if isMain}}
+                        <a class="nav__item active" href="/mainPage">главная</a>
+                        {{else}}
+                        <a class="nav__item" href="/mainPage">главная</a>
+                        {{/if}}
+
+                        {{#if isWorks}}
+                        <a class="nav__item active" href="/works">мои работы</a>
+                        {{else}}
+                        <a class="nav__item" href="/works">мои работы</a>
+                        {{/if}}
+
+                        {{#if isBlog}}
+                        <a class="nav__item active" href="/blogPage?page=1">блог</a>
+                        {{else}}
+                        <a class="nav__item" href="/blogPage?page=1">блог</a>
+                        {{/if}}
+
+                        {{#if isConnect}}
+                        <a class="nav__item active" href="/connect">резюме</a>
+                        {{else}}
+                        <a class="nav__item" href="/connect">резюме</a>
+                        {{/if}}
+                    </div>
+                </div>
+                {{#if mainPage}}
+                <div class="header__other block">
+                    {{else}}
+                    <div class="header__other block-small">
+                        {{/if}}
+                        <div class="header__nav--item">
+                            {{#if isAdmin}}
+                            <a class="nav__item active" href="/admin">Админка</a>
+                            {{else}}
+                            <a class="nav__item" href="/admin">Админка</a>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                </div>
+</header>

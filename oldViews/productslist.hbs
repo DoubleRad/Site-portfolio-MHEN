@@ -1,0 +1,24 @@
+<h2 style="text-align: center; width:100%">Products list</h2>
+{{#if products.length}}
+<div class="product__wrapper">
+    {{#each products}}
+
+    <div class="product">
+        <div class="product__item">
+            <div class="product__img ibg">
+                <img src="https://via.placeholder.com/358x256" alt="">
+            </div>
+            <div class="product__title">{{title}}</div>
+            <div class="product__subtitle">{{subtitle}}</div>
+            <div class="product__text">{{text}}</div>
+            <form class="productForm" action="/deleteProduct" method="POST">
+                <button class="btn red lighten-1 ">Удалить</button>
+                <input type="hidden" name="id" value="{{_id}}">
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<p>Список товаров пуст</p>
+{{/if}}

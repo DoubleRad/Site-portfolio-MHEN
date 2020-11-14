@@ -1,0 +1,20 @@
+<div class="container">
+    <h4>Обновление записи</h4>
+    <hr style="height: 3px;background-color:darkgray">
+    <form action="/blog/posts/update/{{_id}}" method="POST" enctype="multipart/form-data">
+        <h5>тайтл</h5>
+        <input type="text" name="title" value="{{title}}">
+        <h5>текст</h5>
+        <input type="text" name="text" value="{{text}}">
+        <h6>Категория</h6>
+        <p class="info">Что бы записать больше одной категории разделяйте их знаком "_". <br>
+            Пример: <b>Категория1_Категория2_Категория3</b>
+        </p>
+        <input type="text" name="category" value="{{category}}">
+        <input type="hidden" name="imageSrc" value="{{imageSrc}}">
+
+        <h5>Фотография</h5>
+        <input type="file" name="image">
+        <button class="send" type="submit">Отправить</button>
+    </form>
+</div>

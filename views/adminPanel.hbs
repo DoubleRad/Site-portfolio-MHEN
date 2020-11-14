@@ -1,0 +1,114 @@
+<div class="container">
+    <div style="display: flex; justify-content:center; align-items:center">
+        <div style="width: 33.3333%;padding:10px">
+            <h4>Пост для блога</h4>
+            <hr style="height: 3px;background-color:darkgray">
+            <form action="/blog/posts/add" method="POST" enctype="multipart/form-data">
+                <h5>тайтл</h5>
+                <input type="text" name="title">
+                <h5>текст</h5>
+                <input type="text" name="text">
+                <h6>Категория</h6>
+                <input type="text" name="category">
+
+                <h5>Фотография</h5>
+                <input type="file" name="image">
+                <button class="send" type="submit">Отправить</button>
+            </form>
+        </div>
+
+        <div style="width: 33.3333%;padding:10px">
+            <h4>Пост для проэктов</h4>
+            <hr style="height: 3px;background-color:darkgray">
+            <form action="/work/add" method="POST" enctype="multipart/form-data">
+                <h5>тайтл</h5>
+                <input type="text" name="title">
+                <h5>заголовок</h5>
+                <input type="text" name="subtitle">
+                <h5>текст</h5>
+                <input type="text" name="text">
+                <h6>Категории</h6>
+                <p class="info">Существующие категории для работ : <b>Приложения , Сайты , Дизайн</b></p>
+                <input type="text" name="category">
+
+                <h5>Фотография</h5>
+                <input type="file" name="image">
+                <button class="send" type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+    <h1 style="font-weight: bold; text-align:center;margin:150px 0 30px 0">Редактирование блога</h1>
+    <div class="news">
+        {{#each posts}}
+        <div class="news__col">
+
+            <form action="/blog/posts/delete/{{_id}}" method="post">
+                <button class="delete" type="submit">Удалить</button>
+            </form>
+            <form action="/blog/posts/update/{{_id}}" enctype="multipart/form-data">
+                <button class="send" type="submit">редактировать</button>
+            </form>
+
+            <div class="news__image">
+                <div class="news__date">
+                    {{date.month}}<br>
+                    {{date.day}}-e
+                </div>
+                <img class="news__photo" src="/{{imageSrc}}" alt="">
+            </div>
+            <div class="news__content">
+                <div class="news__title">{{title}}</div>
+                <div class="news__cat">
+                    {{category}}
+                </div>
+                <div class="news__text">
+                    <p class="news__text_item">{{text}}</p>
+                </div>
+                <form class="news__form" action="/blog/posts/{{_id}}">
+                    <div class="news__form_content">
+                        <button type="submit" class="blogBtn" href="">читать полностью</button>
+                        <img src="svg/right.svg" alt="" width="15" height="15">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        {{/each}}
+
+    </div>
+    <!--/.news-->
+
+    <h1 style="font-weight: bold; text-align:center;margin:150px 0 30px 0">Редактирование проектов</h1>
+    <div class="portfolio" id="portfolio">
+        {{#each projects}}
+
+        <div class="portfolio__col" data-cat={{category}}>
+
+            <div class="work">
+                <img class="work__image" src="/{{imageSrc}}" alt="">
+                <div class="work__content">
+                    <div class="work__cat">{{category}}</div>
+                    <div class="work__title">
+                        {{title}}
+                        <time class="work__date" datetime="2020-10-02 14:34">{{date.year}}</time>
+                    </div>
+                </div>
+            </div>
+            <form action="/work/delete/{{_id}}" method="POST"><button class="delete">удалить</button></form>
+
+        </div>
+
+        {{/each}}
+    </div>
+    <h1 style="text-align: center;margin-top:150px">Удаление категорий</h1>
+    <div class="catlist-item" style="text-align: center;">
+        {{#each categories}}
+        <form action="/blog/category/delete/{{_id}}" method="POST">
+            <a href="/blog/category/{{name}}">{{name}}</a> <button
+                style="padding: 3px 5px;background:red">Удалить</button> / <br>
+        </form>
+        {{/each}}
+    </div>
+</div>
+
+<script src="js/textCutter.js"></script>

@@ -1,0 +1,158 @@
+{{#if searchCategory}}
+<div class="categoryVidget__wrapper">
+    <div class="categoryVidget block-small">
+        <div class="categoryVidget__inner">
+            <div class="categoryVidget__title">
+                Сортирока по категории :
+                <b class="categoryVidget__nav--item">{{searchCategory}}</b>
+            </div>
+        </div>
+    </div>
+    <div class="categoryVidget__empty block-small non-active">
+
+    </div>
+</div>
+{{/if}}
+
+<section class="blog-section">
+    <div class="blog__vidgets-mobile block-small">
+        <form class="blog__form" action="/blog/category/find" method="POST">
+            <div class="blog__form-title">поиск по категории:</div>
+            <div class="blog__form_input">
+                <div class="blog__form_input-before"></div>
+                <input class="blog__form_input-input" type="text" placeholder="Поиск" name="categoryToFind">
+            </div>
+            <button type="submit" class="blog__form-backBtn addBefore">
+                Поиск
+            </button>
+            {{#if searchCategory}}
+            <div class="blog__form-backBtn addBefore">
+                <a href="/blogPage?page=1">Назад ко всем записям</a>
+            </div>
+            {{/if}}
+            <div class="catlist">
+                <div class="catlist__inner">
+                    <div class="catlist-title">
+                        Список последних категорий:
+                    </div>
+                    <div class="catlist-item">
+                        {{#each categories}}
+                        <a href="/blog/category/{{name}}">{{name}}</a> /
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="blog">
+        <div class="blog__inner">
+            <div class="blog__posts block">
+                {{#each posts.docs}}
+                <div class="post">
+                    <div class="post__inner">
+                        <a href="/blog/posts/{{_id}}" type="text/html">
+                            <div class="post__image">
+                                <img src="/{{imageSrc}}" alt="">
+                            </div>
+                            <div class="post__content">
+                                <div class="post__title">
+                                    {{title}}
+                                </div>
+                                <div class="post__categories">
+                                    {{#each category}}
+                                    <span>{{this}}</span>
+                                    {{/each}}
+                                </div>
+                                <div class="post__text">
+                                    <p> {{text}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="blog__vidgets block">
+                <form class="blog__form" action="/blog/category/find" method="POST">
+                    <div class="blog__form-title">поиск по категории:</div>
+                    <div class="blog__form_input">
+                        <div class="blog__form_input-before"></div>
+                        <input class="blog__form_input-input" type="text" placeholder="" id="catfind"
+                            name="categoryToFind">
+                    </div>
+                    <button type="submit" class="blog__form-backBtn addBefore">
+                        Поиск
+                    </button>
+                    {{#if searchCategory}}
+                    <div class="blog__form-backBtn addBefore">
+                        <a href="/blogPage?page=1">Назад ко всем записям</a>
+                    </div>
+                    {{/if}}
+                    <div class="catlist">
+                        <div class="catlist__inner">
+                            <div class="catlist-title">
+                                Список последних категорий:
+                            </div>
+                            <div class="catlist-item">
+                                {{#each categories}}
+                                <a href="/blog/category/{{name}}">{{name}}</a> /
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="pagination block-small">
+        <div class="pagination__inner">
+            <div class="pagination__prev pagination__nav">
+                {{#if posts.hasPrevPage}}
+                <a href="/blogPage?page={{posts.prevPage}}"><img src="/svg/left.svg" width="40" alt=""></a>
+                {{else}}
+                <a class="disabled" href="/blogPage?page={{posts.prevPage}}"><img src="/svg/left.svg" width="40"
+                        alt=""></a>
+                {{/if}}
+            </div>
+            <div class="pagination__page">
+                <span>
+                    <span class="info">стр.</span>
+                    {{posts.page}}
+                    <span class="info">из</span>
+                    {{posts.totalPages}}
+                </span>
+            </div>
+            <div class="pagination__next pagination__nav">
+                {{#if posts.hasNextPage}}
+                <a href="/blogPage?page={{posts.nextPage}}"><img src="/svg/right.svg" width="40" alt=""></a>
+                {{else}}
+                <a class="disabled" href="/blogPage?page={{posts.nextPage}}"><img src="/svg/right.svg" width="40"
+                        alt=""></a>
+                {{/if}}
+            </div>
+        </div>
+
+
+    </div>
+    {{> footer}}
+</section>
+
+
+<script>
+
+    var size = 120
+    let content = document.getElementsByClassName('post__text');
+
+    console.log()
+
+    for (key in content) {
+        if (content[key].innerHTML) {
+            if (content[key].innerHTML.length > size) {
+                content[key].innerHTML = content[key].innerHTML.slice(0, size) + ". . ."
+            }
+        } else {
+            break;
+        }
+    }
+</script>
+<script src="/js/blogPage.js"></script>

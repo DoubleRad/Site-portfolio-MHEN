@@ -1,0 +1,45 @@
+// main : ../style.less
+
+.header__body {
+  margin-bottom: 150px;
+  margin-top: 50px;
+}
+
+.header__body_inner {
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.header__row {
+  display: inline-block;
+  width: 50%;
+}
+.content__title {
+  max-width: 300px;
+  color: @title;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.content__subtitle {
+  color: @subtitle;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.content__social {
+}
+.social__item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  transition: 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  & img {
+    width: 30px;
+  }
+}

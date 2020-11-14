@@ -1,0 +1,44 @@
+// main : ../style.less
+
+@media screen and (max-width: 500px) {
+  .clock__empty {
+    display: none !important;
+  }
+  .clock__item {
+    margin: 0 !important;
+  }
+}
+
+.clock {
+  margin-bottom: @blockMargin;
+  & div {
+    flex-basis: 100%;
+  }
+}
+.clock__inner {
+  display: flex;
+}
+.clock__empty {
+  background: #253e49;
+  flex-shrink: 1;
+}
+.clock__item {
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 0 @blockMargin;
+  flex-shrink: 1.5;
+
+  background: @bccol;
+  color: white;
+}
+.clock__title {
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+.clock__time {
+  min-width: 180px;
+  position: relative;
+  font-weight: bold;
+  font-size: 2.5rem;
+}

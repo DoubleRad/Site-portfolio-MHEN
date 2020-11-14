@@ -1,0 +1,72 @@
+//main: ../style.less
+.singlePostPage {
+  margin: 40px 0;
+
+  &--date {
+    margin-right: 10px;
+  }
+
+  &--categories {
+    & a {
+      color: black;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    margin-right: 10px;
+  }
+}
+.singlePostPage__image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.singlePostPage__title {
+  padding: 10px 10px 10px 20px;
+
+  background-color: #5252521c;
+  color: @title;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.singlePostPage__text {
+  padding: 10px 10px 10px 30px;
+  color: @title;
+  font-size: 1.1rem;
+}
+
+.singlePostPage__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.singlePostPage__col {
+  width: 50%;
+}
+
+.singlePostPage__info {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.singlePostPage__nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &--item {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 5px 15px 5px 15px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

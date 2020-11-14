@@ -1,0 +1,72 @@
+<div class="connect">
+    <div class="technology">
+        <div class="technology__inner addBefore">
+            <div class="technology__title">Технологии изученные мной</div>
+
+            {{#each technology}}
+            <div class="technology__collumn">
+                <div class="technology__collumn-title" data-name='{{name}}'>{{name}}</div>
+                <div class="technology__collumn-menu show" data-menu='{{name}}'>
+                    {{#each technologies}}
+                    <div class="technology__item">{{this}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="contact ">
+        <div class="contanct__inner addBefore">
+            <div class="contact__title-main">Свяжитесь со мной</div>
+            <form class="contanct__inner-form" action="/appeal/add" method="POST">
+                <div class="contact__title">Тема</div>
+                <div class="contact__input_inner">
+                    <div class="before"></div>
+                    <input type="text" name="theme" class="contact__input">
+                </div>
+
+                <div class="contact__title">Обращение</div>
+                <div class="contact__input_inner">
+                    <div class="before"></div>
+                    <textarea name="appeal" id="" cols="30" rows="10" class="contact__input-big"></textarea>
+                </div>
+
+                <div class="contact__title">Email@</div>
+                <div class="contact__input_inner">
+                    <div class="before"></div>
+                    <input type="text" name="email" class="contact__input">
+                </div>
+
+                <div class="contact__title">Номер телефона</div>
+                <div class="contact__input_inner">
+                    <div class="before"></div>
+                    <input type="text" name="phone" class="contact__input">
+                </div>
+
+                <button class="contact__button" type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    const buttons = $('[data-name]');
+
+    buttons.on('click', function (event) {
+
+        let name = $(this).data('name');
+
+        $('[data-menu]').each(function () {
+            let menu = $(this).data('menu')
+
+            if ($(this).hasClass('show')) {
+                $(this).removeClass('show')
+            } else if (menu == name) {
+                $(this).addClass('show')
+            }
+        })
+    })
+
+
+</script>

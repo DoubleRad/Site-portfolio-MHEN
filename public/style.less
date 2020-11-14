@@ -1,0 +1,144 @@
+// compress : true
+body,
+html {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  background-color: darken(@bccol, 10%);
+}
+
+.container {
+  max-width: 1350px;
+  margin: auto;
+}
+
+*,
+*:after,
+*:before {
+  color: white;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: none;
+  &:active {
+    background: none;
+  }
+  &:focus {
+    background: none;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+p {
+  &.info {
+    opacity: 70%;
+    font-size: 0.8rem;
+  }
+}
+
+.block {
+  z-index: 50;
+  position: relative;
+  transition: 0.3s;
+  padding: 15px 25px 15px 40px;
+  height: 140px;
+  &-small {
+    position: relative;
+    transition: 0.3s;
+    padding: 5px 25px 5px 40px;
+    height: auto;
+    &:hover {
+      filter: brightness(1.08);
+    }
+    &:before {
+      position: absolute;
+      z-index: 0;
+      content: "";
+      display: block;
+      height: 100%;
+      width: 25px;
+      left: 0;
+      bottom: 0;
+      background-color: @bcbeforecol;
+    }
+  }
+  &:hover {
+    filter: brightness(1.08);
+  }
+  &:before {
+    position: absolute;
+    z-index: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 25px;
+    left: 0;
+    bottom: 0;
+    background-color: @bcbeforecol;
+  }
+}
+.non-active {
+  background-color: darken(@bccol, 6%) !important;
+  &:before {
+    background-color: darken(@bcbeforecol, 6%) !important;
+  }
+}
+
+input {
+  color: black !important;
+}
+
+.addBefore {
+  position: relative;
+  &:before {
+    position: absolute;
+    z-index: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 25px;
+    left: 0;
+    bottom: 0;
+    background-color: @bcbeforecol;
+  }
+}
+
+@import "vars";
+
+@import "blocks/headerBody.less";
+@import "blocks/slider.less";
+@import "blocks/ibg.less";
+@import "blocks/footer.less";
+@import "blocks/about.less";
+@import "blocks/readme.less";
+@import "blocks/news.less";
+@import "blocks/works.less";
+@import "blocks/portfolio.less";
+@import "blocks/work.less";
+@import "blocks/singlePostPage.less";
+@import "blocks/btn.less";
+@import "blocks/singleProjPage.less";
+@import "blocks/blog.less";
+@import "blocks/pagination.less";
+@import "blocks/technology.less";
+@import "blocks/connect.less";
+@import "blocks/contactform.less";
+
+@import "blocks/header.less";
+@import "blocks/nav.less";
+@import "blocks/aboutme.less";
+@import "blocks/clock.less";
+@import "blocks/slider.less";
+@import "blocks/footer.less";

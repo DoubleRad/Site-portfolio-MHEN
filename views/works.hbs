@@ -1,0 +1,78 @@
+<div class="container">
+    <!--Блок с работами / Works-->
+    <div class="works">
+
+        <div class="works__nav">
+            <a class="works__nav-link" href="#" data-filter="Все">Все</a>
+            <a class="works__nav-link" href="#" data-filter="Приложения">Приложения</a>
+            <a class="works__nav-link" href="#" data-filter="Сайты">Сайты</a>
+            <a class="works__nav-link" href="#" data-filter="Дизайн">Дизайн</a>
+        </div>
+
+        <div id="works">
+
+            <div class="portfolio" id="portfolio">
+
+                {{#each works}}
+
+                <input type="hidden" name="projId" value="{{_id}}">
+                <div class="portfolio__col" data-cat={{category}}>
+
+                    <div class="work">
+                        <a href="/work/findOne/{{_id}}">
+                            <img class="work__image" src="/{{imageSrc}}" alt="">
+                            <div class="work__content">
+                                <div class="work__cat">{{category}}</div>
+
+                                <div class="work__title">
+                                    {{title}}
+                                    <time class="work__date" datetime="2020-10-02 14:34">{{date.year}}</time>
+                                </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+    <!--/.portfolio-->
+
+</div>
+<!--/.works-->
+</div>
+
+<script>
+
+    //сортировка по категориям
+
+    $(function () {
+
+        let filter = $("[data-filter]");
+
+        filter.on("click", function (event) {
+            event.preventDefault();
+
+            let cat = $(this).data('filter');
+
+            if (cat == 'Все') {
+                $("[data-cat]").removeClass('hide')
+            }
+            else {
+                $("[data-cat]").each(function () {
+
+                    let workCat = $(this).data('cat');
+
+                    if (workCat != cat) {
+                        $(this).addClass('hide');
+                    }
+                    else {
+                        $(this).removeClass('hide');
+                    }
+
+                });
+            };
+        });
+    });
+</script>

@@ -1,0 +1,61 @@
+//main : ../style.less
+
+@btnbg: #8a3030;
+
+.blogBtn {
+  cursor: pointer;
+
+  padding: 5px 5px 5px 15px;
+  color: @title;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+
+  transition: 0.15s;
+
+  &:after {
+  }
+
+  &:hover {
+  }
+}
+
+.backBtn {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  background: gray;
+  &:active {
+    background: darkgray;
+  }
+}
+
+.send {
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 15px;
+  background-color: #32663296;
+  border-radius: 10px;
+
+  transition: 0.15s;
+
+  &:hover {
+    transform: scale(0.98);
+    background-color: #328532c7;
+  }
+}
+
+.delete {
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 15px;
+  background-color: #66323296;
+  border-radius: 10px;
+
+  transition: 0.15s;
+
+  &:hover {
+    transform: scale(0.98);
+    background-color: #853232c7;
+  }
+}

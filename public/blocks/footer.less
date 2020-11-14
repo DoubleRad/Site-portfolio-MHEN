@@ -1,0 +1,35 @@
+// main : ../style.less
+
+.footer {
+  width: 100%;
+  height: 80px;
+  background-color: @bccol;
+  margin-top: @blockMargin;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.footer__copyright {
+  font-weight: bold;
+  color: lighten(@bccol, 15%);
+}
+.footer__nav {
+  display: flex;
+  align-items: center;
+  &-item {
+    & a {
+      transition: 0.3s;
+
+      color: darken(@bccol, 11%);
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 15px;
+      &:hover {
+        color: lighten(@bccol, 10%);
+      }
+    }
+  }
+}

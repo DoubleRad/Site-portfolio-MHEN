@@ -1,0 +1,31 @@
+// main: ../style.less
+
+.nav__item {
+  color: white;
+  position: relative;
+  transition: 0.3s;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  &.active {
+    &:after {
+      width: 100%;
+    }
+  }
+  &:after {
+    transition: 0.15s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    content: "";
+    display: block;
+    width: 0;
+    height: 4px;
+    background-color: white;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+<section>
+    <div class="aboutme">
+        <div class="aboutme__inner">
+            <div class="aboutme__content block">
+                <div class="aboutme__title">
+                    <div class="aboutme__title-first"><b>К</b>ратко</div>
+                    <div class="aboutme__title-second"><b>К</b>то я такой</div>
+                </div>
+                <div class="aboutme__text">
+                    Йоу, собаки, я — Наруто Узумаки
+                    Да, и, кстати, я — будущий Хокаге
+                    У меня всё круто, я же всё-таки Наруто
+                    Ненавижу Орочимару и Кабуто
+                    Знаю много джутсу, ненавижу бутсы
+                    Лучше клонов, Расенгана не найдутся
+                    У меня фанаты, плюс я люблю Хинату
+                    Немало друзей, и однокомнатная хата
+                </div>
+            </div>
+            <div class="aboutme__empty block non-active"></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="clock">
+        <div class="clock__inner">
+            <div class="clock__empty non-active block"></div>
+            <div class="clock__item block">
+                <div class="clock__title">время у меня:</div>
+                <div class="clock__time" id="clock">00:00</div>
+            </div>
+            <div class="clock__empty non-active block"></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="slider__title block-small">
+        <h1 class="slider__title-title">
+            Мой блог
+        </h1>
+        <h2 class="slider__title-subtitle">
+            Иногда я пишу что-то полезное
+        </h2>
+    </div>
+    <div class="slider">
+        {{#each data}}
+        <div class="slider__item">
+            <div class="slider__inner addBefore">
+                <a href="/blog/posts/{{_id}}" type="text/html">
+                    <div class="slider__item-header">
+                        <img src="{{imageSrc}}" alt="">
+                    </div>
+                    <div class="slider__item-body">
+                        <div class="slider__item-title">
+                            {{title}}
+                        </div>
+                        <div class="slider__item-category">
+                            {{#each category}}
+                            <span>{{this}}</span>
+                            {{/each}}
+                        </div>
+                        <div class="slider__item-text">
+                            <p> {{text}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+{{> footer }}
+
+<script src="/js/slick.min.js"></script>
+<script>
+
+    //Часики
+    const clock = $('#clock');
+    function hexoclock() {
+        let time = new Date;
+        let h = time.getHours();
+        let m = time.getMinutes();
+
+        clock.text(`${h}:${m}`)
+    }
+
+    setInterval(hexoclock, 500)
+
+    //Слайдер
+
+
+    $(document).ready(function () {
+        $('.slider').slick({
+            infinite: true,
+            arrows: true,
+            slidesToShow: 6,
+            slidesToScroll: 2,
+            touchTheshold: 10,
+            responsive: [
+                {
+                    breakpoint: 1600,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        arrows: true
+                    }
+                },
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        arrows: true
+                    }
+                },
+                {
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        arrows: true
+                    }
+                },
+                {
+                    breakpoint: 800,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        arrows: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        arrows: true
+                    }
+                },]
+        })
+    })
+
+    //Обрезание текста до 120 символов
+    var size = 120
+    let content = document.getElementsByClassName('slider__item-text');
+
+    console.log()
+
+    for (key in content) {
+        if (content[key].innerHTML) {
+            if (content[key].innerHTML.length > size) {
+                content[key].innerHTML = content[key].innerHTML.slice(0, size) + ". . ."
+            }
+        } else {
+            break;
+        }
+    }
+</script>
